@@ -1,0 +1,245 @@
+/* * {
+    border: 1px black solid;
+} */
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* to reset the default browser margin */
+    background-color: #fff;
+    /* or whatever color you want for the background */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    background-color: #fff;
+    min-width: 77.5%;
+    max-width: 77.5%;
+}
+
+.container2 {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.title {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: left;
+}
+
+.title2 {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: left;
+    margin-top: 4%;
+}
+
+.portfolio {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #E9EDF2;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.portfolio:hover {
+    cursor: pointer;
+    animation-name: update-animation;
+    animation-duration: 5s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+
+.portfolio2 {
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #ebd3c0;
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.portfolio2:hover .cancel-icon {
+    cursor: pointer;
+    opacity: 1;
+    transform: translateX(0);
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+
+.cancel-icon {
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-weight: bold;
+    font-family: 'Comic Sans MS', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    /* Required for align-items to work */
+    width: 50px;
+    /* Adjust width as needed */
+    font-size: 40px;
+    opacity: 0;
+    background-color: #E9EDF2;
+    transform: translateX(0);
+    transition: all 0.5s ease-in-out;
+}
+
+.portfolio2 table {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1.3rem;
+}
+
+.bigtable {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.portfolio table {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1.3rem;
+}
+
+td {
+    width: 33.33%;
+    text-align: center;
+}
+
+.portfolio td:nth-child(1) {
+    text-align: left;
+}
+
+.portfolio td:nth-child(2),
+.portfolio td:nth-child(3) {
+    text-align: right;
+}
+
+.portfolio2 td:nth-child(1) {
+    text-align: left;
+}
+
+.portfolio td:nth-child(2),
+.portfolio2 td:nth-child(3) {
+    text-align: right;
+}
+
+.firstRow {
+    border: 10px solid black;
+}
+
+.text {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.secondaryTextSell {
+    color: red;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+}
+
+.secondaryTextBuy {
+    color: #68d99a;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+}
+
+.secondaryText {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: #6E7D83;
+}
+
+.positive {
+    color: #68d99a;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.negative {
+    color: red;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.negative .percent {
+    color: red;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+.positive .percent {
+    color: #68d99a;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+.sell {
+    color: red;
+}
+
+/* @keyframes update-animation {
+    0% {border-color: #ebd3c0;}
+    50% {border-color: #03314B;}
+    100% {border-color: #ebd3c0;}
+} */
+
+@keyframes update-animation {
+    0% {border-color: red;}
+    14% {border-color: orange;}
+    28% {border-color: yellow;}
+    42% {border-color: lime;}
+    57% {border-color: blue;}
+    71% {border-color: indigo;}
+    85% {border-color: violet;}
+    100% {border-color: red;}
+} 
+
+.portfolio2 {
+    animation-name: update-animation;
+    animation-duration: 10s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+}
+

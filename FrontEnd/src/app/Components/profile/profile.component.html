@@ -1,0 +1,19 @@
+<div class="body">
+    <div class="container">
+        <table class="table">
+
+            <tr class="row" *ngIf="!this.services.isGoogleLoggedIn">
+                <button class="text" routerLink="/password"> <mat-icon class="button-icon">account_circle</mat-icon>
+                    Password</button>
+            </tr>
+
+            <tr class="row">
+                <button class="text" routerLink="/payment"><mat-icon
+                        class="button-icon">account_balance_wallet</mat-icon> Funds</button>
+            </tr>
+            <tr class="row">
+                <button class="text" (click)="logOut()"><mat-icon class="button-icon">logout</mat-icon> Log out</button>
+            </tr>
+        </table>
+    </div>
+</div>

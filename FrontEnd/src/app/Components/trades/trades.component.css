@@ -1,0 +1,450 @@
+/* *{
+    border: 1px black solid;
+}  */
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* to reset the default browser margin */
+    background-color: #fff;
+    /* or whatever color you want for the background */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    min-width: 80%;
+    max-width: 80%;
+}
+
+.portfolio {
+    display: flex;
+    flex-direction: column;
+    /* changed from justify-content: space-evenly; */
+    width: 100%;
+    border-radius: 0.5rem;
+    background-color: #fff;
+}
+
+.portfolio table {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1.3rem;
+}
+
+.textOne {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    padding-bottom: 2%;
+    text-align: left;
+}
+
+.text {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.secondaryTextOne {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: #6E7D83;
+    text-align: left;
+}
+
+.secondaryText {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: #6E7D83;
+}
+
+
+.tableSecondaryText {
+    font-size: 1rem;
+    line-height: 1.90rem;
+    font-weight: 400;
+    color: #000000;
+    text-align: center;
+}
+
+.tableText {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 5.5%;
+    margin-right: -10%;
+}
+
+.tableText1 {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: left;
+    padding-left: 5.5%;
+    margin-right: -10%;
+}
+
+.positive {
+    color: #68d99a;
+    text-align: left;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.negative {
+    color: red;
+    text-align: left;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+}
+
+.negative .percent {
+    color: red;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+.positive .percent {
+    color: #68d99a;
+    text-align: left;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 500;
+}
+
+.icon {
+    padding-top: 1%;
+    padding-right: 1%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    padding: 1%;
+    margin-top: 1%;
+}
+
+.cell,
+.col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+td.tableText {
+    width: 20%;
+    padding-top: 1%;
+}
+
+td.tableText1 {
+    width: 20%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+td.tablecol2 {
+    width: 80%;
+    padding-top: 1%;
+}
+
+.selector {
+    width: 40.6%;
+    height: 35px;
+    border: 1px solid #E9EDF2;
+    border-radius: 0.3rem;
+}
+
+td input {
+    width: 40%;
+    border: 1px solid #E9EDF2;
+    border-radius: 0.3rem;
+
+}
+
+.buttonRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.timeRow {
+    padding-top: 1%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+
+.spaceF {
+    padding-left: 2%;
+    padding-right: 10%;
+}
+
+.space {
+    padding-right: 10%;
+}
+
+.duration {
+    border: 1px solid #E9EDF2;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #03314B;
+    border-radius: 0.8rem;
+    width: 120px;
+    height: 40px;
+    background-color: #fff;
+}
+
+.selectedDuration {
+    border: 1px solid #E9EDF2;
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    color: #fff;
+    border-radius: 0.8rem;
+    width: 120px;
+    height: 40px;
+    background-color: #68d99a;
+}
+
+.duration:hover {
+    cursor: pointer;
+    background-color: #68d99a;
+    color: #6E7D83;
+}
+
+.graph {
+    width: 80%;
+    margin-left: 2%;
+}
+
+.bigoverview {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 100%;
+    align-items: center;
+}
+
+.overview {
+    display: flex;
+    flex-direction: row;
+    border: #E9EDF2 solid 1px;
+    border-radius: 0.8rem;
+    padding: 1%;
+    margin-left: -23%;
+    max-width: 65%;
+    min-width: 65%;
+}
+
+.title {
+    margin-left: 2%;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.textBid {
+    padding-left: 5%;
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.secondaryTextBid {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: #6E7D83;
+    text-align: right;
+
+}
+
+.rowbid {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    padding-left: 3%;
+}
+
+.colbid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    /* This will ensure each column takes up 25% of the row width */
+}
+
+.questionIcon {
+    color: #03314B;
+    font-size: 1.5rem;
+    line-height: 1.75rem;
+    margin-left: 90%;
+    width: auto;
+}
+
+.questionIcon:hover {
+    color: #03314B;
+    cursor: pointer;
+    font-size: 1.8rem;
+    line-height: 1.75rem;
+    margin-left: 90%;
+    width: auto;
+}
+
+.c-button {
+    background-color: #03314B;
+    font-size: 1.5rem;
+    line-height: 1.3rem;
+    font-weight: 600;
+    padding: 0.6em;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 1;
+    border-radius: 0.8rem;
+    width: 300px;
+    margin-left: 10%;
+    margin-top: 3%;
+    margin-bottom: 2%;
+}
+
+.c-button--gooey {
+    color: #ffffff;
+    letter-spacing: 2px;
+    border: 2px solid;
+    border-radius: 0.8rem;
+    position: relative;
+    transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs {
+    height: 100%;
+    filter: url(#goo);
+    overflow: hidden;
+    position: absolute;
+    border-radius: 0.8rem;
+    top: 0;
+    left: 0;
+    bottom: -3px;
+    right: -1px;
+    z-index: -1;
+}
+
+.c-button--gooey .c-button__blobs div {
+    background-color: #68d99a;
+    width: 34%;
+    height: 100%;
+    border-radius: 0.8rem;
+    position: absolute;
+    transform: scale(1.4) translateY(125%) translateZ(0);
+    transition: all 700ms ease;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(1) {
+    left: -5%;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(2) {
+    left: 30%;
+    transition-delay: 60ms;
+}
+
+.c-button--gooey .c-button__blobs div:nth-child(3) {
+    left: 66%;
+    transition-delay: 25ms;
+}
+
+.c-button--gooey:hover {
+    color: #68d99a;
+}
+
+.c-button:hover {
+    color: #03314B;
+}
+
+.c-button--gooey:hover .c-button__blobs div {
+    transform: scale(1.4) translateY(0) translateZ(0);
+}
+
+
+.card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-x: auto;
+    gap: 1%;
+    width: 80%;
+    padding: 1%;
+    padding-top: 2%;
+    padding-left: 5%;
+}
+
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: #E9EDF2 solid 1px;
+    border-radius: 0.8rem;
+    padding: 1.1rem;
+    margin-right: 1%;
+    min-width: 200px;
+    min-height: 90px;
+    flex-shrink: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+.cardRow {
+    padding-left: 0.1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-row {
+    display: flex;
+    justify-content: space-between;
+    /* Aligns the items to be at the start and end of the row */
+}
+
+.text1 {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: left;
+}
+
+.secondaryTextOne1 {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: #6E7D83;
+    text-align: right;
+}

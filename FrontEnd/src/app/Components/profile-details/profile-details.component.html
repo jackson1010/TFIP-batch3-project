@@ -1,0 +1,43 @@
+<div class="body">
+    <div class="container">
+        <form class="form" [formGroup]="DetailsForm" (submit)="processForm()">
+
+            <div class="samePassword"
+                *ngIf="DetailsForm.get('password')?.hasError('passwordNotMatch') && DetailsForm.get('password')?.dirty">
+                Your new password cannot be the same as your current password
+            </div>
+
+            <label class="long">
+                <input required="" placeholder="" type="password" class="input" formControlName="oldPassword">
+                <div class="error"
+                    *ngIf="DetailsForm.get('oldPassword')?.hasError('required') && DetailsForm.get('oldPassword')?.dirty">
+                </div>
+                <span
+                    [ngClass]="{'invalid-input':  DetailsForm.get('oldPassword')?.hasError('passwordNotMatch') && DetailsForm.get('oldPassword')?.dirty}">Current
+                    Password</span>
+            </label>
+
+            <label class="long">
+                <input required="" placeholder="" type="password" class="input" formControlName="password">
+                <div class="error"
+                    *ngIf="DetailsForm.get('password')?.hasError('passwordMismatch')  && DetailsForm.get('password')?.dirty">
+                </div>
+                <span
+                    [ngClass]="{'invalid-input':  DetailsForm.get('password')?.hasError('passwordMismatch') && DetailsForm.get('password')?.dirty}">New
+                    Password</span>
+            </label>
+
+            <label class="long">
+                <input required="" placeholder="" type="password" class="input" formControlName="confirmpassword">
+                <div class="error"
+                    *ngIf="DetailsForm.get('confirmpassword')?.hasError('passwordMismatch')  && DetailsForm.get('confirmpassword')?.dirty">
+                </div>
+                <span
+                    [ngClass]="{'invalid-input':  DetailsForm.get('confirmpassword')?.hasError('passwordMismatch') && DetailsForm.get('confirmpassword')?.dirty}">Confirm
+                    password</span>
+            </label>
+
+            <button class="submit" [disabled]="DetailsForm.invalid">Submit</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+
+<div class="container">
+    <form [formGroup]="signUpForm" (submit)="processForm()" class="form">
+        <p class="title">Register </p>
+        <p class="message">Signup now and get full access to our app. </p>
+        <div class="flex">
+            <label>
+                <input required="" placeholder="" type="text" class="input" formControlName="firstname">
+                <span>Firstname</span>
+            </label>
+
+            <label>
+                <input required="" placeholder="" type="text" class="input" formControlName="lastname">
+                <span>Lastname</span>
+            </label>
+        </div>
+
+        <label>
+            <input required="" placeholder="" type="email" class="input" formControlName="email">
+            <div class="error" *ngIf=" signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.dirty">
+            </div>
+            <span
+                [ngClass]="{'invalid-input': signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.dirty}">Email</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="password" class="input" formControlName="password">
+            <div class="error"
+                *ngIf="signUpForm.get('password')?.hasError('passwordMismatch')  && signUpForm.get('password')?.dirty">
+            </div>
+            <span
+                [ngClass]="{'invalid-input':  signUpForm.get('password')?.hasError('passwordMismatch') && signUpForm.get('password')?.dirty}">Password</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="password" class="input" formControlName="confirmpassword">
+            <div class="error"
+                *ngIf="signUpForm.get('confirmpassword')?.hasError('passwordMismatch')  && signUpForm.get('confirmpassword')?.dirty">
+            </div>
+            <span
+                [ngClass]="{'invalid-input':  signUpForm.get('confirmpassword')?.hasError('passwordMismatch') && signUpForm.get('confirmpassword')?.dirty}">Confirm
+                password</span>
+        </label>
+
+        <button class="submit" [disabled]="signUpForm.invalid">Submit</button>
+        <p class="signin">Already have an acount ? <a routerLink="/login">Sign in</a> </p>
+
+        <p class="signin">or sign up with:</p>
+        <asl-google-signin-button class="icon" shape='circle' type='icon' size='medium'
+            theme="filled_blue"></asl-google-signin-button>
+    </form>
+</div>

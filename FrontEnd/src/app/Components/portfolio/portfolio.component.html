@@ -1,0 +1,86 @@
+<div class="body">
+    <div class="container">
+        <div class="title">
+            My Portfolio
+        </div>
+        <div class="bigtable" *ngIf="this.stockService.myStockList.length !=0 else empty">
+            <div class="portfolio" *ngFor="let c of this.stockService.myStockList, let i =index"
+                (click)="goToTradeComp(i)">
+                <table>
+                    <tr class="row">
+                        <td>
+                            <div class="text">
+                                {{c.symbol}}
+                            </div>
+                            <div class="secondaryText">
+                                {{c.name}}
+                            </div>
+                        </td>
+                        <td>
+                            <div [ngClass]="{'positive': c.percentageChange >= 0, 'negative': c.percentageChange < 0}">
+                                <span>${{Math.abs(c.currentPrice) | number:'1.2-2'}}</span>
+                            </div>
+                            <div [ngClass]="{'positive': c.percentageChange >= 0, 'negative': c.percentageChange < 0}">
+                                <span class="percent">{{ c.percentageChange >= 0 ? '↑' : '↓'
+                                    }}{{Math.abs(c.percentageChange) | number:'1.2-2'}}%</span>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="text">
+                                ${{c.price | number:'1.2-2' }}
+                            </div>
+                            <div class="secondaryText">
+                                <span *ngIf="c.buyOrSell==='sell'" class="sell">({{c.buyOrSell}}) </span> {{c.quantity}}
+                                Shares
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div *ngIf="this.stockService.pendingTrades.length !=0" class="container2">
+            <div class="title2">
+                Outstanding Trades
+            </div>
+            <div class="bigtable">
+                <div class="portfolio2" *ngFor="let p of this.stockService.pendingTrades; let i =index ">
+                    <table>
+                        <tr class="row">
+                            <td>
+                                <div class="text">
+                                    {{p.symbol}}
+                                </div>
+                                <div class="secondaryText">
+                                    {{p.name}}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text">
+                                    ${{p.currentPrice | number:'1.2-2'}}
+                                </div>
+                                <div
+                                    [ngClass]="{'secondaryTextBuy':p.buyOrSell==='buy', 'secondaryTextSell': p.buyOrSell==='sell'}">
+                                    {{p.buyOrSell | titlecase}}
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text">
+                                    ${{p.price | number:'1.2-2'}} Bid
+                                </div>
+                                <div class="secondaryText">
+                                    {{p.quantity}} Shares
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                    <span class="cancel-icon" (click)="$event.stopPropagation(); cancelOrder(i);">X</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #empty>
+    <h2><iframe src="https://giphy.com/embed/LdOyjZ7io5Msw" width="480" height="359" frameBorder="0" class="giphy-embed"
+            allowFullScreen></iframe></h2>
+</ng-template>

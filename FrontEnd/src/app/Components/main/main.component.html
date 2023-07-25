@@ -1,0 +1,78 @@
+<body>
+  <div class="card">
+    <div class="content">
+      <span class="title">
+        Total Assets
+      </span>
+      <span class="text">
+        USD
+      </span>
+      <span class="text"> {{this.service.accountType}}</span>
+      <table class="assets">
+        <tr>
+          <td rowspan="2">
+            <p class="total">
+              {{this.service.getTotalAssets() | number:'1.2-2'}}
+            </p>
+          </td>
+          <th>
+            <span class="text">
+              P/L
+            </span>
+          </th>
+        </tr>
+        <tr>
+          <td class="text">
+            {{this.stockService.totalPL()| number:'1.2-2'}}%
+          </td>
+        </tr>
+        <tr class="buttons">
+          <td>
+            <button class="c-button c-button--gooey" routerLink="/deposit"> Deposit
+              <div class="c-button__blobs">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                    result="goo"></feColorMatrix>
+                  <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                </filter>
+              </defs>
+            </svg>
+          </td>
+          <td>
+            <button class="c-button c-button--gooey" routerLink="/withdraw"> Withdraw
+              <div class="c-button__blobs">
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </button>
+            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+              <defs>
+                <filter id="goo">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                  <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                    result="goo"></feColorMatrix>
+                  <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                </filter>
+              </defs>
+            </svg>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div class="portfolio">
+    <app-portfolio></app-portfolio>
+  </div>
+  <div class="trendy">
+    <app-live-trades></app-live-trades>
+  </div>
+</body>

@@ -1,0 +1,15 @@
+<body>
+  <div class="content-wrapper">
+    <ng-container *ngIf="!hideNavbar">
+      <app-header></app-header>
+    </ng-container>
+    <router-outlet></router-outlet>
+  </div>
+  <footer>
+    <ng-container *ngIf="!hideNavbar">
+      <app-navbar></app-navbar>
+    </ng-container>
+  </footer>
+</body>
+
+

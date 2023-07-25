@@ -1,0 +1,28 @@
+<div class="container">
+    <form [formGroup]="loginForm" (submit)="processForm()" class="form">
+        <p class="title">Login </p> 
+
+        <label>
+            <input required="" placeholder="" class="input" formControlName="email">
+            <div class="error" *ngIf="loginForm.get('email')?.hasError('required')  && loginForm.get('email')?.dirty">
+            </div>
+            <span
+                [ngClass]="{'invalid-input':  loginForm.get('email')?.hasError('required') || loginForm.get('email')?.dirty}">Email</span>
+        </label>
+
+        <label>
+            <input required="" placeholder="" type="password" class="input" formControlName="password">
+            <div class="error"
+                *ngIf="loginForm.get('password')?.hasError('required')  && loginForm.get('password')?.dirty">
+            </div>
+            <span>Password</span>
+        </label>
+        <button class="submit" [disabled]="loginForm.invalid">Login</button>
+
+        <p class="signin">Dont' have an acount ? <a routerLink="/signup">Sign up</a> </p>
+
+        <p class="signin">or log in with:</p>
+        <asl-google-signin-button class="icon" shape='circle' type='icon' size='medium'
+            theme="filled_blue"></asl-google-signin-button>
+    </form>
+</div>

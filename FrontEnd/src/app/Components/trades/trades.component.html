@@ -1,0 +1,221 @@
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+
+<div class="body">
+    <div class="container">
+        <div class="portfolio">
+            <div class="row">
+                <div class="icon">
+                    <img src={{icon}}>
+                </div>
+                <div class="col">
+                    <div class="textOne">
+                        {{stock.symbol}}
+                    </div>
+                    <div class="secondaryTextOne">
+                        {{stock.longName}}
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="textOne">
+                        ${{stock.price | number:'1.2-2'}}
+                    </div>
+                    <div [ngClass]="{'positive': stock.percentageChange >= 0, 'negative': stock.percentageChange < 0}">
+                        <span class="percent">{{ stock.percentageChange >= 0 ? '↑' : '↓'
+                            }}{{Math.abs(stock.percentageChange) | number:'1.2-2'}}%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="timeRow">
+                    <div class="spaceF"><button [ngClass]="selectedDuration === '5m' ? 'selectedDuration' : 'duration'"
+                            (click)="getGraph('5m')">5M</button></div>
+                    <div class="space"><button [ngClass]="selectedDuration === '30m' ? 'selectedDuration' : 'duration'"
+                            (click)="getGraph('30m')">30M</button></div>
+                    <div class="space"><button [ngClass]="selectedDuration === '1h' ? 'selectedDuration' : 'duration'"
+                            (click)="getGraph('1h')">1H</button></div>
+                    <div class="space"><button [ngClass]="selectedDuration === '1d' ? 'selectedDuration' : 'duration'"
+                            (click)="getGraph('1d')">1D</button></div>
+                    <div class="space"><button [ngClass]="selectedDuration === '1mo' ? 'selectedDuration' : 'duration'"
+                            (click)="getGraph('1mo')">1MO</button></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="graph">
+                    <app-line-chart [stock]="stock" [mainChart]="true"></app-line-chart>
+                </div>
+            </div>
+            <form [formGroup]="Form">
+                <table>
+                    <tr *ngIf="quantityOwn >=0">
+                        <td colspan="2">
+                            <span class="tableText1">Currently have {{quantityOwn}} stocks</span>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr>
+                        <td class="tableText">Order Type</td>
+                        <td class="tablecol2">
+                            <select id="orderType" formControlName="orderType" class="selector">
+                                <option value="limit" class="tableSecondaryText">Limit</option>
+                                <option value="market" class="tableSecondaryText">Market</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr *ngIf="Form.get('orderType')?.value == 'limit'">
+                        <td class="tableText">Price</td>
+                        <td class="tablecol2">
+                            <input type="number" class="tableSecondaryText" formControlName="price">
+                            <div class="error" *ngIf="Form.get('price')?.hasError('min')  && Form.get('price')?.dirty">
+                                Please enter an amount greater than or equal to 1.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tableText">Quantity</td>
+                        <td class="tablecol2">
+                            <input type="number" class="tableSecondaryText" formControlName="quantity">
+                            <div class="error"
+                                *ngIf="Form.get('quantity')?.hasError('min')  && Form.get('quantity')?.dirty">
+                                Please enter an amount greater than or equal to 1.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="tableText">Amount</td>
+                        <td class="tablecol2">
+                            <input type="number" class="tableSecondaryText" formControlName="amount" readonly>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <div class="buttonRow">
+                                <button class="c-button c-button--gooey" type="submit" [disabled]="Form.invalid"
+                                    (click)="submit('buy')"> Buy
+                                    <div class="c-button__blobs">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </button>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    style="display: block; height: 0; width: 0;">
+                                    <defs>
+                                        <filter id="goo">
+                                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur">
+                                            </feGaussianBlur>
+                                            <feColorMatrix in="blur" mode="matrix"
+                                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo">
+                                            </feColorMatrix>
+                                            <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                                        </filter>
+                                    </defs>
+                                </svg>
+
+                                <button class="c-button c-button--gooey" type="submit" [disabled]="Form.invalid"
+                                    (click)="submit('sell')"> Sell
+                                    <div class="c-button__blobs">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </button>
+                                <svg xmlns="http://www.w3.org/2000/svg" version="1.1"
+                                    style="display: block; height: 0; width: 0;">
+                                    <defs>
+                                        <filter id="goo">
+                                            <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur">
+                                            </feGaussianBlur>
+                                            <feColorMatrix in="blur" mode="matrix"
+                                                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="goo">
+                                            </feColorMatrix>
+                                            <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                                        </filter>
+                                    </defs>
+                                </svg>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+
+            <div class="title">
+                <span class="text">Market</span>
+            </div>
+            <div class="bigoverview">
+                <div class="overview">
+                    <div class="rowbid">
+                        <div class="colbid">
+                            <span class="textBid">Bid</span> <span class="secondaryTextBid">{{this.stock.bid |
+                                number:'1.2-2'}}</span>
+                        </div>
+                        <div class="colbid">
+                            <span class="textBid">Bid Size</span> <span class="secondaryTextBid">{{this.stock.bidSize|
+                                number}}</span>
+                        </div>
+                    </div>
+                    <div class="rowbid">
+                        <div class="colbid">
+                            <span class="textBid">Ask</span> <span class="secondaryTextBid">{{this.stock.ask |
+                                number:'1.2-2'}}</span>
+                        </div>
+                        <div class="colbid">
+                            <span class="textBid">Ask Size</span><span class="secondaryTextBid">{{this.stock.askSize|
+                                number}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card-container">
+                <div class="card">
+                    <div class="cardRow">
+                        <div class="data-row"><span class="text1">Verdict</span><span
+                                class="text1">{{whatToDo}}</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardRow">
+                        <div class="data-row"><span class="text1">Open</span><span
+                                class="secondaryTextOne1">{{this.stock.open | number:'1.2-2'}}</span></div>
+                        <div class="data-row"><span class="text1">High</span><span
+                                class="secondaryTextOne1">{{this.stock.high | number:'1.2-2'}}</span></div>
+                        <div class="data-row"><span class="text1">Low</span><span
+                                class="secondaryTextOne1">{{this.stock.low | number:'1.2-2'}}</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardRow">
+                        <div class="data-row"><span class="text1">Vol</span><span
+                                class="secondaryTextOne1">{{this.stock.averageDailyVolume10Day | number}}</span>
+                        </div>
+                        <div class="data-row"><span class="text1">F.P/E</span><span
+                                class="secondaryTextOne1">{{this.stock.forwardPE | number:'1.2-2'}}</span></div>
+                        <div class="data-row"><span class="text1">T.P/E</span><span
+                                class="secondaryTextOne1">{{this.stock.trailingPE | number:'1.2-2'}}</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardRow">
+                        <div class="data-row"><span class="text1">52W H</span><span
+                                class="secondaryTextOne1">{{this.stock.fiftyTwoWeekHigh | number:'1.2-2'}}</span></div>
+                        <div class="data-row"><span class="text1">52W L</span><span
+                                class="secondaryTextOne1">{{this.stock.fiftyTwoWeekLow | number:'1.2-2'}}</span></div>
+                        <div class="data-row"><span class="text1">PB</span><span
+                                class="secondaryTextOne1">{{this.stock.priceToBook | number:'1.2-2'}}</span></div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="cardRow">
+                        <div class="data-row"><span class="text1">Div. D</span><span
+                                class="secondaryTextOne1">{{this.stock.dividendDate}}</span></div>
+                        <div class="data-row"><span class="text1">F.EPS</span><span
+                                class="secondaryTextOne1">{{this.stock.epsForward | number:'1.2-2'}}</span></div>
+                        <div class="data-row"><span class="text1">T.EPS</span><span
+                                class="secondaryTextOne1">{{this.stock.epsTrailingTwelveMonths | number:'1.2-2'}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

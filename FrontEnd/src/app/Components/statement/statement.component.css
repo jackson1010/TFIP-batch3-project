@@ -1,0 +1,108 @@
+/* * 
+{
+    border: 1px black solid;
+}  */
+
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* to reset the default browser margin */
+    background-color: #fff;
+    /* or whatever color you want for the background */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2%;
+    background-color: #fff;
+    min-width: 77.5%;
+    max-width: 77.5%;
+}
+
+.title {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    min-width: 100%;
+    max-width: 100%;
+    text-align: left;
+
+}
+
+.portfolio {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 2%;
+    border-radius: 0.5rem;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+    border: 1px solid #E9EDF2;
+    min-width: 80%;
+    max-width: 80%;
+}
+
+.bigtable {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+.portfolio table {
+    min-width: 100%;
+    max-width: 100%;
+    padding: 1.3rem;
+}
+
+.text {
+    color: #03314B;
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.secondaryText {
+    font-size: 1rem;
+    line-height: 1.75rem;
+    font-weight: 400;
+    color: #6E7D83;
+    display: inline-block;
+}
+
+.row1 {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: -5%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.first {
+    align-self: flex-start;
+}
+.totalAmount {
+    text-decoration: underline;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.green {
+    color: red !important;
+}
+.green div {
+    color: red !important;
+}
+
+
+
+

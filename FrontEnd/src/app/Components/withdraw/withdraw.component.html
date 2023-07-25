@@ -1,0 +1,77 @@
+<app-loading-screen *ngIf="isLoading"></app-loading-screen>
+
+<div class="modal">
+    <form class="form" [formGroup]="paymentForm" (submit)="processForm()">
+        <div class="credit-card-info--form">
+            <div class="input_container">
+                <label class="input_label">Full Name</label>
+                <input class="input_field" formControlName="name" type="text">
+                <div class="error" *ngIf="paymentForm.get('name')?.hasError('required')  && paymentForm.get('name')?.dirty">
+                    Please enter your full name
+                </div>
+            </div>
+            <div class="input_container">
+                <label class="input_label" >Amount USD</label>
+                <input class="input_field" formControlName="amount" type="number">
+                <div class="error" *ngIf="paymentForm.get('amount')?.hasError('min')  && paymentForm.get('amount')?.dirty">
+                    Please enter an amount greater than or equal to 10
+                </div>
+            </div>
+            <div class="input_container">
+                <label class="input_label" >Bank Name</label>
+                <input class="input_field" formControlName="bankName" type="text">
+                <div class="error" *ngIf="paymentForm.get('bankName')?.hasError('required')  && paymentForm.get('bankName')?.dirty">
+                    Please enter your bank name
+                </div>
+            </div>
+            <div class="input_container">
+                <label class="input_label" >Bank Account Number</label>
+                <input class="input_field" formControlName="account" type="number">
+                <div class="error" *ngIf="paymentForm.get('account')?.hasError('numberLength')  && paymentForm.get('account')?.dirty">
+                    Please enter your 9 digit bank account no.
+                </div>
+            </div>
+
+            <div class="input_container">
+                <label class="input_label" >Billing Address</label>
+                <input class="input_field" formControlName="address" type="text">
+                <div class="error" *ngIf="paymentForm.get('address')?.hasError('required')  && paymentForm.get('address')?.dirty">
+                    Please enter your address
+                </div>
+            </div>
+            <div class="billing">
+                <div class="country">
+                    <label class="input_label" >Country</label>
+                    <input class="input_field" formControlName="country" type="text">
+                    <div class="error" *ngIf="paymentForm.get('country')?.hasError('required')  && paymentForm.get('country')?.dirty">
+                        Please enter your country
+                    </div>
+                </div>
+                <div class="country">
+                    <label class="input_label">Postal Code</label>
+                    <input class="input_field" formControlName="code" type="text">
+                    <div class="error" *ngIf="paymentForm.get('code')?.hasError('required')  && paymentForm.get('code')?.dirty">
+                        Please enter your postal code
+                    </div>
+                </div>
+            </div>
+        </div>
+              <button type="submit" class="c-button c-button--gooey" [disabled]="paymentForm.invalid"> Proceed
+                <div class="c-button__blobs">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </button>
+              <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: block; height: 0; width: 0;">
+                <defs>
+                  <filter id="goo">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur"></feGaussianBlur>
+                    <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
+                      result="goo"></feColorMatrix>
+                    <feBlend in="SourceGraphic" in2="goo"></feBlend>
+                  </filter>
+                </defs>
+              </svg>
+    </form>
+</div>

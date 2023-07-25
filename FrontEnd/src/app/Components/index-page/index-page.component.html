@@ -1,0 +1,80 @@
+<body>
+    <header [style.top.px]="value * -0.5">
+        <img src="assets\logo2.png" class="logo">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a routerLink="/login">Login</a></li>
+            <li><a routerLink="/signup">SignUp</a></li>
+        </ul>
+    </header>
+    <section>
+        <img src="assets\stars.png" [style.left.px]="value * 0.25" id="stars">
+        <img src="assets\wsb1.png" [style.top.px]="value * 2.5" id="moon">
+        <img src="assets\mountains_behind.png" [style.top.px]="-value * -0.5" id="mountains_behind">
+        <h2 [style.marginTop.px]="-value * 2" id="text">Zin Investment Inc.</h2>
+        <span [style.marginTop.px]="value * 1.25" id="btn">Trade to a better Tomorrow</span>
+        <img src="assets\mountains_front.png" [style.top.px]="-value * 0" id="mountains_front">
+    </section>
+
+    <div class="sec" id="sec">
+        <div class="description">
+            <h2>
+                <span *ngFor="let word of words; let i = index" [@cascadeIn]="animationState">
+                    {{word}}
+                </span>
+                <span class="title" [@cascadeIn]="animationState">{{ziinc}}</span>
+            </h2>
+            <p>Experience the future of stock trading with Zin Investment Inc, where AI technology revolutionizes
+                decision-making by eliminating human emotions. Our platform analyzes vast amounts of data, providing
+                data-driven insights, real-time updates, and personalized suggestions. Stay ahead of the game, make
+                informed choices, and maximize your investment potential. Join us today and unlock the power of AI for a
+                prosperous financial future. </p>
+        </div>
+        <div class="image2">
+            <video width="100%" height="100%" autoplay loop muted>
+                <source src="assets/fintech.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+
+        </div>
+    </div>
+    <div class="sec2" id="sec">
+        <div class="description">
+            <h2>Our Technology</h2>
+            <h1>Live Markets</h1>
+            <p>Discover the ultimate stock trading experience on our app! Enjoy real-time updates, ensuring you never
+                miss a beat in the dynamic market. With pinpoint accuracy in pricing and an extensive range of
+                comprehensive stocks, our platform empowers you to seize opportunities and make informed investment
+                decisions. Sign Up now and elevate your trading game with confidence. </p>
+        </div>
+        <div class="image2">
+            <lottie-player src="https://lottie.host/a20b80b2-3340-4c55-a52c-01a3480b48d5/OC66GVJNlL.json" background=""
+                speed="1" style="width: 100%; height: 100%" loop autoplay direction="1" mode="normal"></lottie-player>
+        </div>
+    </div>
+
+    <div class="sec2" >
+        <div class="description">
+            <h1>AI Trades (Coming Soon)</h1>
+            <p>Trade smarter with our revolutionary stock app powered by AI. Benefit from advanced big data analysis,
+                personalized guidance, and AI-driven custom indicators. Elevate your investment decisions and seize
+                opportunities others miss. Download now and unleash the potential of AI for your stock trades.</p>
+        </div>
+        <div class="image2">
+            <lottie-player src="https://lottie.host/c32efb0c-ce36-46e5-9689-815fc2bfd338/pkj3JEaw80.json" background=""
+                speed="1" style="width: 100%; height: 100%" loop autoplay direction="1" mode="normal"></lottie-player>
+        </div>
+    </div>
+
+    <div class="sec3"></div>
+    <div class="sec4">
+        <div class="description2">
+            <h1>Special Thanks</h1>
+            <p>To all the teachers and friends throughout this journey. Thanks for all the memories. Add me here => <a
+                    href="https://www.instagram.com/hiphippyhophop/?hl=en"><img id="insta" src="assets/ig.png"
+                        style="width: 3%; height: 3%; " alt="ig">
+                </a>@hiphippyhophop</p>
+        </div>
+    </div>
+
+</body>

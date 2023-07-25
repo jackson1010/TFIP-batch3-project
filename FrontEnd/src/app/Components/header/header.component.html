@@ -1,0 +1,55 @@
+<header>
+    <div class="header">
+        <img class="logo" src="assets/logo.png" height=90px; width=90px alt="Company logo">
+        <div *ngIf="isLinkActive('/main')">
+            <span class="headerTitle" >
+                Welcome {{name | titlecase}}
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/liveTrades')">
+            <span class="headerTitle">
+                Watchlist
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/portfolio')">
+            <span class="headerTitle">
+                Portfolio
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/profile')">
+            <span class="headerTitle">
+                Settings
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/password')">
+            <span class="headerTitle">
+                Change Password
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/payment')">
+            <span class="headerTitle">
+                Funds
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/deposit')">
+            <span class="headerTitle">
+                Deposit
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/withdraw')">
+            <span class="headerTitle">
+                Withdraw
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/statement')">
+            <span class="headerTitle">
+                Statement
+            </span>
+        </div>
+        <div *ngIf="isLinkActive('/trades')">
+            <span class="headerTitle">
+                Stock Details
+            </span>
+        </div>
+    </div>
+</header>

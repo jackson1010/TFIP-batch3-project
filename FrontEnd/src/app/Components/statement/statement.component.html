@@ -1,0 +1,82 @@
+<div class="body">
+    <div class="container">
+        <div class="title">
+            Transactions
+        </div>
+        <div class="bigtable" *ngIf="this.service.assets.length !=0 else empty">
+            <div class="portfolio" *ngFor="let c of funds let i=index">
+                <table>
+                    <tr class="row1">
+                        <td [ngClass]="{'green': c.amount < 0}">
+                            <div class="text">
+                                {{i+1}}
+                            </div>
+                        </td>
+                        <td [ngClass]="{'green': c.amount < 0}">
+                            <div class="text">
+                                ${{c.amount | number:'1.2-2'}} <span class="secondaryText">{{c.currency}}</span>
+                            </div>
+                        </td>
+                        <td [ngClass]="{'green': c.amount < 0}">
+                            <div class="text">
+                                {{c.status}}
+                            </div>
+                        </td>
+                        <td [ngClass]="{'green': c.amount < 0}">
+                            <div class="text">
+                                {{c.datetime}}
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="bigtable">
+                <div class="portfolio">
+                    <table>
+                        <tr class="row">
+                            <td class="first">
+                                <div class="text">
+                                    Total
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text totalAmount">
+                                    ${{this.service.getTotalAmount() | number:'1.2-2'}} <span
+                                        class="secondaryText">usd</span>
+                                </div>
+                            </td>
+                            <td class="first">
+                                <div class="text">
+                                    Balance
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text totalAmount">
+                                    ${{this.service.getBalance() | number:'1.2-2'}} <span
+                                        class="secondaryText">usd</span>
+                                </div>
+                            </td>
+                            <td class="first">
+                                <div class="text">
+                                    On Hold
+                                </div>
+                            </td>
+                            <td>
+                                <div class="text totalAmount">
+                                    ${{this.service.getHoldingAmount() | number:'1.2-2'}} <span
+                                        class="secondaryText">usd</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #empty>
+    <h2>Empty</h2>
+</ng-template>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td>
+                <span style="font-family: Arial; font-size: 18px;">Your withdraw of $</span>
+                <span data-th-text="${amount}" style="font-family: Arial; font-size: 18px;"></span>
+                <span style="font-family: Arial; font-size: 18px;"> to </span>
+                <span data-th-text="${bankName}" style="font-family: Arial; font-size: 18px;"></span>
+                <span style="font-family: Arial; font-size: 18px;">, account no. </span>
+                <span data-th-text="${account}" style="font-family: Arial; font-size: 18px;"></span>
+                <span style="font-family: Arial; font-size: 18px;">will be process in 3 working days.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <span style="font-family: Arial; font-size: 18px;">Have a great day Trading.</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="cid:funds" style="width:600px" alt="funds image" />
+            </td>
+        </tr>
+    </table>
+</body>
+
+</html>
